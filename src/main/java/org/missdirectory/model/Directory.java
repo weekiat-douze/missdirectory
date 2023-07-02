@@ -7,11 +7,23 @@ import java.util.HashMap;
  */
 public class Directory {
     private String directoryName;
+    private Directory parentDirectory;
     private HashMap<String, Directory> subDirectories;
 
     public Directory(String directoryName) {
         this.directoryName = directoryName;
+        this.parentDirectory = null;
         this.subDirectories = new HashMap<>();
+    }
+
+    public Directory(String directoryName, Directory parentDirectory) {
+        this.directoryName = directoryName;
+        this.parentDirectory = parentDirectory;
+        this.subDirectories = new HashMap<>();
+    }
+
+    public Directory getParentDirectory() {
+        return this.parentDirectory;
     }
 
     /**
@@ -24,7 +36,7 @@ public class Directory {
         if (exists) {
             return false;
         }
-        Directory newDir = new Directory(subDirName);
+        Directory newDir = new Directory(subDirName, this);
         this.subDirectories.put(subDirName, newDir);
         return true;
     }
