@@ -8,7 +8,7 @@ import org.missdirectory.model.CurrentDirectory;
 public abstract class Command {
 
     /**
-     * Executes command and returns latest representation of current directory
+     * Executes command and returns the latest representation of current directory
      * @return Current directory
      */
     public abstract void execute(CurrentDirectory currentDirectory);
