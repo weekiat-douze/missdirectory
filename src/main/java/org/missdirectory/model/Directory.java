@@ -22,6 +22,10 @@ public class Directory {
         this.subDirectories = new HashMap<>();
     }
 
+    public String getDirectoryName() {
+        return this.directoryName;
+    }
+
     public Directory getParentDirectory() {
         return this.parentDirectory;
     }
