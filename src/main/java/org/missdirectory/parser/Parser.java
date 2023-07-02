@@ -1,6 +1,8 @@
 package org.missdirectory.parser;
 
+import org.missdirectory.commands.Command;
 import org.missdirectory.commands.MkdirCommand;
+import org.missdirectory.exceptions.ParseException;
 
 /**
  * Parser for user input.
@@ -12,7 +14,7 @@ public class Parser {
      * @param userInput Input provided by user.
      * @return Command object representing user's intended action.
      */
-    public static void parseInput(String userInput) {
+    public static Command parseInput(String userInput) throws ParseException {
         // cd, mkdir, rm
         String[] temp = userInput.split(" ", 2);
         String command = temp[0];
@@ -20,6 +22,7 @@ public class Parser {
 
         switch (command) {
             case MkdirCommand.COMMAND:
+                return MkdirCommandParser.parse(args);
                 break;
         }
 
