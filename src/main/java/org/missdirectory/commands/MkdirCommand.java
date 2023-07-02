@@ -1,0 +1,23 @@
+package org.missdirectory.commands;
+
+import org.missdirectory.model.CurrentDirectory;
+import org.missdirectory.model.Directory;
+
+public class MkdirCommand extends Command{
+    public static final String COMMAND = "mkdir";
+
+    private String newDirectoryName;
+
+    public MkdirCommand(String newDirectoryName) {
+        this.newDirectoryName = newDirectoryName;
+    }
+
+    @Override
+    public void execute(CurrentDirectory currentDirectory) {
+        Directory curr = currentDirectory.getDirectory();
+        boolean success = curr.addSubdirectory(this.newDirectoryName);
+        if (!success) {
+
+        }
+    }
+}
