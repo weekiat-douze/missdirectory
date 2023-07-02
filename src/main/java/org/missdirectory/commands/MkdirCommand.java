@@ -4,6 +4,9 @@ import org.missdirectory.exceptions.ExecuteException;
 import org.missdirectory.model.CurrentDirectory;
 import org.missdirectory.model.Directory;
 
+/**
+ * Class represents the request to create a directory.
+ */
 public class MkdirCommand extends Command{
     public static final String COMMAND = "mkdir";
 
