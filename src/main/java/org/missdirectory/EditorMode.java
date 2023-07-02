@@ -1,7 +1,11 @@
 package org.missdirectory;
 
+import org.missdirectory.commands.Command;
+import org.missdirectory.exceptions.ExecuteException;
+import org.missdirectory.exceptions.ParseException;
 import org.missdirectory.model.CurrentDirectory;
 import org.missdirectory.model.Template;
+import org.missdirectory.parser.Parser;
 
 import java.util.Scanner;
 
@@ -27,6 +31,15 @@ public class EditorMode {
         CurrentDirectory currentDir = new CurrentDirectory(editingTemplate.getTemplateRootDir());
 
         while(!userCmdStr.equals("exit")) {
+            try {
+                Command cmd = Parser.parseInput(userCmdStr);
+                cmd.execute(currentDir);
+            } catch (ParseException pe) {
+                System.out.println(pe.getMessage());
+            } catch (ExecuteException ee) {
+                System.out.println(ee.getMessage());
+            }
+
 
         }
 
