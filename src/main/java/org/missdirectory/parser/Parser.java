@@ -1,5 +1,6 @@
 package org.missdirectory.parser;
 
+import org.missdirectory.commands.ChangeDirectoryCommand;
 import org.missdirectory.commands.Command;
 import org.missdirectory.commands.MkdirCommand;
 import org.missdirectory.exceptions.ParseException;
@@ -23,8 +24,9 @@ public class Parser {
         switch (command) {
             case MkdirCommand.COMMAND:
                 return MkdirCommandParser.parse(args);
-                break;
+            case ChangeDirectoryCommand.COMMAND:
+                return ChangeDirectoryCommandParser.parse(args);
         }
-
+        throw new ParseException("Invalid Command!");
     }
 }
