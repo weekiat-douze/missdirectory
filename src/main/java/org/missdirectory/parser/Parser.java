@@ -18,7 +18,7 @@ public class Parser {
         String[] temp = userInput.split(" ", 2);
 
         String command = temp[0];
-        String args = temp.length > 1 ? temp[1] : null;
+        String args = temp.length > 1 ? temp[1].trim() : null;
 
 
         switch (command) {
@@ -30,6 +30,8 @@ public class Parser {
                 return ListCommandParser.parse(args);
             case RemoveCommand.COMMAND:
                 return RemoveCommandParser.parse(args);
+            case TreeCommand.COMMAND:
+                return TreeCommandParser.parse(args);
             default:
                 throw new ParseException("Invalid Command!");
         }
