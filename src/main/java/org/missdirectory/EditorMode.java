@@ -23,12 +23,12 @@ public class EditorMode {
      * Start the editing interface to edit the provided Template.
      * @return The completed template.
      */
-    public Template run() {
+    public Template run(Scanner reader) {
         System.out.println("Currently editing: " + this.editingTemplate.getTemplateName() + "\n");
 
         CurrentDirectory currentDir = new CurrentDirectory(editingTemplate.getTemplateRootDir());
         System.out.print(currentDir.getDirectoryPath());
-        Scanner reader = new Scanner(System.in);
+        reader = new Scanner(System.in);
         String userCmdStr = reader.nextLine();
 
 
