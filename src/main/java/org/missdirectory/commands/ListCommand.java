@@ -17,10 +17,14 @@ public class ListCommand extends Command {
     public void execute(CurrentDirectory currentDirectory) throws ExecuteException {
         Directory curr = currentDirectory.getDirectory();
         ArrayList<Directory> subdir = curr.getSubdirectories();
-        String dirNameList = "";
+        int counter = 0;
         for (Directory dir: subdir) {
-            dirNameList += "\n" + dir.getDirectoryName();
+            System.out.printf("%-10s", dir.getDirectoryName());
+            counter++;
+            if (counter % 3 == 0) {
+                System.out.println();
+            }
         }
-        System.out.println(dirNameList);
+        System.out.println();
     }
 }
