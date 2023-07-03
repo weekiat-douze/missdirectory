@@ -3,6 +3,7 @@ package org.missdirectory.commands;
 import org.missdirectory.exceptions.ExecuteException;
 import org.missdirectory.model.CurrentDirectory;
 import org.missdirectory.model.Directory;
+import org.missdirectory.model.Template;
 
 public class RemoveCommand extends Command {
     public static final String COMMAND = "rm";
@@ -14,7 +15,7 @@ public class RemoveCommand extends Command {
     }
 
     @Override
-    public void execute(CurrentDirectory currentDirectory) throws ExecuteException {
+    public void execute(CurrentDirectory currentDirectory, Template editingTemplate) throws ExecuteException {
         Directory curr = currentDirectory.getDirectory();
         boolean success = curr.removeSubdirectory(this.delDirectoryName);
         if (!success) {
