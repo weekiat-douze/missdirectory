@@ -23,13 +23,22 @@ public class Directory {
         this.subDirectories = new HashMap<>();
     }
 
+    /**
+     * Returns the name of this Directory.
+     * @return String name of this Directory.
+     */
     public String getDirectoryName() {
         return this.directoryName;
     }
 
+    /**
+     * Returns the parent Directory.
+     * @return Parent Directory
+     */
     public Directory getParentDirectory() {
         return this.parentDirectory;
     }
+
 
     /**
      * Create a subdirectory of this directory.
@@ -57,7 +66,7 @@ public class Directory {
 
     public boolean removeSubdirectory(String subDirName) {
         boolean exists = this.subDirectories.containsKey(subDirName);
-        if (exists) {
+        if (!exists) {
             return false;
         }
         this.subDirectories.remove(subDirName);

@@ -16,7 +16,7 @@ public class Parser {
     public static Command parseInput(String userInput) throws ParseException {
         // cd, mkdir, rm
         String[] temp = userInput.split(" ", 2);
-        
+
         String command = temp[0];
         String args = temp.length > 1 ? temp[1] : null;
 

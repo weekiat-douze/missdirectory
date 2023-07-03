@@ -22,7 +22,7 @@ public class Main {
                     System.out.println("one");
                     break;
                 case "2":
-                    System.out.print("Template name:");
+                    System.out.print("Template name: ");
                     String templateName = reader.nextLine();
                     EditorMode em = new EditorMode(new Template(templateName));
                     em.run();
