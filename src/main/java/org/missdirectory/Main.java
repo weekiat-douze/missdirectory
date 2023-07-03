@@ -1,5 +1,7 @@
 package org.missdirectory;
 
+import org.missdirectory.model.Template;
+
 import java.util.Scanner;
 
 public class Main {
@@ -13,19 +15,22 @@ public class Main {
                 "\n4. quit\n";
         System.out.println("What would you like to do today?" + mdMenu);
 
-        String userInput = reader.next();
+        String userInput = reader.nextLine();
         while(!userInput.equals("4") && !userInput.equals("quit")) {
             switch (userInput) {
                 case "1":
                     System.out.println("one");
                     break;
                 case "2":
-                    System.out.println("two");
+                    System.out.print("Template name:");
+                    String templateName = reader.nextLine();
+                    EditorMode em = new EditorMode(new Template(templateName));
+                    em.run();
                     break;
                 default:
                     System.out.println("Please select one of the options." + mdMenu);
             }
-            userInput = reader.next();
+            userInput = reader.nextLine();
         }
 
         System.out.println("Good bye!");
