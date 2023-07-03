@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class ChangeDirectoryCommandParser {
     public static ChangeDirectoryCommand parse(String args) throws ParseException {
         if (args == null) {
-            throw new ParseException("Provide a Directory Name");
+            return new ChangeDirectoryCommand(null);
         }
         boolean validName = Pattern.matches(Directory.NAME_REGEX, args);
         if (!validName && !args.equals("..")) {

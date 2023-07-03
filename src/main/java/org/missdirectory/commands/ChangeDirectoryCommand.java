@@ -3,6 +3,7 @@ package org.missdirectory.commands;
 import org.missdirectory.exceptions.ExecuteException;
 import org.missdirectory.model.CurrentDirectory;
 import org.missdirectory.model.Directory;
+import org.missdirectory.model.Template;
 
 public class ChangeDirectoryCommand extends Command {
     public static final String COMMAND = "cd";
@@ -14,7 +15,11 @@ public class ChangeDirectoryCommand extends Command {
     }
 
     @Override
-    public void execute(CurrentDirectory currentDirectory) throws ExecuteException {
+    public void execute(CurrentDirectory currentDirectory, Template editingTemplate) throws ExecuteException {
+        if (relativePath == null) {
+            currentDirectory.setCurrentDirectory(editingTemplate.getTemplateRootDir());
+            return;
+        }
         Directory curr = currentDirectory.getDirectory();
         Directory subDirectory = curr.getSubdirectory(this.relativePath);
         if (relativePath.equals("..")) {
