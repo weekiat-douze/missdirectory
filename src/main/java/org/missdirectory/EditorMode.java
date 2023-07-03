@@ -35,7 +35,7 @@ public class EditorMode {
         while(!userCmdStr.equals("exit")) {
             try {
                 Command cmd = Parser.parseInput(userCmdStr);
-                cmd.execute(currentDir);
+                cmd.execute(currentDir, editingTemplate);
             } catch (ParseException pe) {
                 System.out.println(pe.getMessage());
             } catch (ExecuteException ee) {
