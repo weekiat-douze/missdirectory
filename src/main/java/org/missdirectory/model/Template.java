@@ -9,7 +9,7 @@ public class Template {
 
     public Template(String templateName) {
         this.templateName = templateName;
-        this.rootDirectory = new Directory("{@}");
+        this.rootDirectory = new Directory("@");
     }
 
     /**

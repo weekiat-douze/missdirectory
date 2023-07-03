@@ -10,6 +10,7 @@ public class Directory {
     private String directoryName;
     private Directory parentDirectory;
     private HashMap<String, Directory> subDirectories;
+    public static final String NAME_REGEX = "^[a-zA-Z0-9@_-]+$";
 
     public Directory(String directoryName) {
         this.directoryName = directoryName;
