@@ -19,9 +19,11 @@ public class ChangeDirectoryCommand extends Command {
         Directory subDirectory = curr.getSubdirectory(this.relativePath);
         if (relativePath.equals("..")) {
             Directory parentDir = curr.getParentDirectory();
-            currentDirectory.setCurrentDirectory(parentDir);
-        }
-        if (subDirectory == null) {
+            if (parentDir == null) {
+                throw new ExecuteException("You have reached the root directory");
+            }
+            subDirectory = parentDir;
+        } else if (subDirectory == null) {
             throw new ExecuteException("Invalid Directory, currently cd only works for 1 directory moves");
         }
         currentDirectory.setCurrentDirectory(subDirectory);
