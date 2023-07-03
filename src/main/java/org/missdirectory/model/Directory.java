@@ -1,5 +1,6 @@
 package org.missdirectory.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -52,6 +53,23 @@ public class Directory {
      */
     public Directory getSubdirectory(String subDirName) {
         return this.subDirectories.get(subDirName);
+    }
+
+    public boolean removeSubdirectory(String subDirName) {
+        boolean exists = this.subDirectories.containsKey(subDirName);
+        if (exists) {
+            return false;
+        }
+        this.subDirectories.remove(subDirName);
+        return true;
+    }
+
+    /**
+     * Retrieve all subdirectories of current directory.
+     * @return Array list of subdirectories.
+     */
+    public ArrayList<Directory> getSubdirectories() {
+        return new ArrayList<Directory>(this.subDirectories.values());
     }
 
 }
