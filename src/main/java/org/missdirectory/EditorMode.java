@@ -26,9 +26,11 @@ public class EditorMode {
     public Template run() {
         System.out.println("Currently editing: " + this.editingTemplate.getTemplateName() + "\n");
 
+        CurrentDirectory currentDir = new CurrentDirectory(editingTemplate.getTemplateRootDir());
+        System.out.print(currentDir.getDirectoryPath());
         Scanner reader = new Scanner(System.in);
         String userCmdStr = reader.nextLine();
-        CurrentDirectory currentDir = new CurrentDirectory(editingTemplate.getTemplateRootDir());
+
 
         while(!userCmdStr.equals("exit")) {
             try {
@@ -39,6 +41,7 @@ public class EditorMode {
             } catch (ExecuteException ee) {
                 System.out.println(ee.getMessage());
             }
+            System.out.print(currentDir.getDirectoryPath());
             userCmdStr = reader.nextLine();
         }
 

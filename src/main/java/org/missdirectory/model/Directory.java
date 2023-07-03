@@ -39,6 +39,11 @@ public class Directory {
         return this.parentDirectory;
     }
 
+    public String getDirectoryPath() {
+        String parentPath = this.parentDirectory != null ? this.parentDirectory.getDirectoryPath() + "/" : "";
+        return parentPath + this.directoryName;
+    }
+
 
     /**
      * Create a subdirectory of this directory.

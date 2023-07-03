@@ -25,4 +25,8 @@ public class CurrentDirectory {
     public Directory getDirectory() {
         return this.currentDirectory;
     }
+
+    public String getDirectoryPath() {
+        return this.currentDirectory.getDirectoryPath() + "> ";
+    }
 }
