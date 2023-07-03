@@ -47,15 +47,10 @@ public class Template {
             String tempBranch = "";
             int currDepth = depth.pop();
             for (int i = 0; i < currDepth; i++) {
-                tempBranch += "  ";
-                tempBranch += vertical;
-                tempBranch += "  ";
+                tempBranch += "  " + vertical + "  ";
             }
             if (currDepth != -1) {
-                tempBranch += "  ";
-                tempBranch += cross;
-                tempBranch += horizontal;
-                tempBranch += " ";
+                tempBranch += "  " + cross + horizontal + " ";
             } else {
                 tempBranch += "(" + templateName + ") ";
             }
