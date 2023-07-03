@@ -2,6 +2,7 @@ package org.missdirectory.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 /**
  * Represents a Directory.
@@ -13,6 +14,10 @@ public class Directory {
     public static final String NAME_REGEX = "^[a-zA-Z0-9@_-]+$";
 
     public Directory(String directoryName) {
+        boolean validName = Pattern.matches(Directory.NAME_REGEX, directoryName);
+        if (!validName) {
+            throw new IllegalArgumentException("Invalid Directory Name");
+        }
         this.directoryName = directoryName;
         this.parentDirectory = null;
         this.subDirectories = new HashMap<>();
