@@ -1,11 +1,18 @@
 package org.missdirectory.model;
 
+import java.util.ArrayList;
+import java.util.Stack;
+
 /**
  * Represents a single template directory structure.
  */
 public class Template {
     private String templateName;
     private Directory rootDirectory;
+
+    private char horizontal =  '\u2500';
+    private char vertical = '\u2502';
+    private char cross = '\u251C';
 
     public Template(String templateName) {
         this.templateName = templateName;
@@ -14,7 +21,7 @@ public class Template {
 
     /**
      * Returns the name of the Template.
-     * @return Name of the Tempalte.
+     * @return Name of the Template.
      */
     public String getTemplateName() {
         return this.templateName;
@@ -28,5 +35,41 @@ public class Template {
         return this.rootDirectory;
     }
 
+    public String getTemplateTree() {
+        String tree = "";
+
+        Stack<Directory> stack = new Stack<>();
+        Stack<Integer> depth = new Stack<>();
+        stack.push(rootDirectory);
+        depth.push(-1);
+        while(!stack.isEmpty()) {
+            Directory currDir = stack.pop();
+            String tempBranch = "";
+            int currDepth = depth.pop();
+            for (int i = 0; i < currDepth; i++) {
+                tempBranch += "  ";
+                tempBranch += vertical;
+                tempBranch += "  ";
+            }
+            if (currDepth != -1) {
+                tempBranch += "  ";
+                tempBranch += cross;
+                tempBranch += horizontal;
+                tempBranch += " ";
+            } else {
+                tempBranch += "(" + templateName + ") ";
+            }
+
+            tree += tempBranch + currDir.getDirectoryName() + "/\n";
+
+            ArrayList<Directory> subdirectories = currDir.getSubdirectories();
+            for (Directory dir: subdirectories) {
+                stack.push(dir);
+                depth.push(currDepth+1);
+            }
+
+        }
+        return tree;
+    }
 
 }
