@@ -1,5 +1,6 @@
 package org.missdirectory;
 
+import org.missdirectory.exceptions.ParseException;
 import org.missdirectory.model.Template;
 import org.missdirectory.storage.TemplateManager;
 
@@ -29,13 +30,7 @@ public class Main {
                     vm.run(reader);
                     break;
                 case "2":
-                    System.out.print("Template name: ");
-                    String templateName = reader.nextLine();
-                    EditorMode em = new EditorMode(new Template(templateName));
-                    Template newTemplate = em.run(reader);
-                    if (newTemplate != null) {
-                        templateManager.setTemplate(newTemplate.getTemplateName(), newTemplate);
-                    }
+                    createNewTemplate(reader, templateManager);
                     break;
                 case "4":
                 case "quit":
@@ -48,5 +43,23 @@ public class Main {
 
         reader.close();
         System.out.println("Good bye!");
+    }
+
+    private static void createNewTemplate(Scanner reader, TemplateManager templateManager) {
+        String templateName;
+        boolean notValidName = true;
+        do {
+            System.out.print("Template name: ");
+            templateName = reader.nextLine();
+            notValidName = !Template.isValidName(templateName);
+            if (notValidName) {
+                System.out.println("The name should be a valid file name.");
+            }
+        } while(notValidName);
+        EditorMode em = new EditorMode(new Template(templateName));
+        Template newTemplate = em.run(reader);
+        if (newTemplate != null) {
+            templateManager.setTemplate(newTemplate.getTemplateName(), newTemplate);
+        }
     }
 }

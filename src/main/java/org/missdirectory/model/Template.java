@@ -3,6 +3,7 @@ package org.missdirectory.model;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.regex.Pattern;
 
 /**
  * Represents a single template directory structure.
@@ -10,19 +11,39 @@ import java.util.Stack;
 public class Template {
     private String templateName;
     private Directory rootDirectory;
-
     private final char horizontal =  '\u2500';
     private final char vertical = '\u2502';
     private final char cross = '\u251C';
 
+    private static final String FILE_NAME_REGEX = "^[^<>:\"/\\\\|?*\\x00-\\x1F]+$";
+
     public Template(String templateName) {
+        if (!isValidName(templateName)) {
+            throw new IllegalArgumentException("Template Name should be a valid file name.");
+        }
         this.templateName = templateName;
         this.rootDirectory = new Directory("@");
     }
 
     public Template(String templateName, Directory rootDirectory) {
+        if (!isValidName(templateName)) {
+            throw new IllegalArgumentException("Template Name should be a valid file name.");
+        }
         this.templateName = templateName;
         this.rootDirectory = rootDirectory;
+    }
+
+    /**
+     * Checks if String is a valid File Name.
+     * @param templateName Potential template name.
+     * @return Boolean indicating whether name is valid.
+     */
+    public static boolean isValidName(String templateName) {
+        boolean validName = Pattern.matches(FILE_NAME_REGEX, templateName);
+        if (!validName) {
+            return false;
+        }
+        return true;
     }
 
     /**
