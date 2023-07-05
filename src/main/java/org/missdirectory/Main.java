@@ -6,16 +6,17 @@ import org.missdirectory.storage.TemplateManager;
 import java.util.Scanner;
 
 public class Main {
+
+    private static final String MD_MENU = "1. View/Modify Directory Templates" +
+            "\n2. Create New Template" +
+            "\n3. Generate Directory Structure" +
+            "\n4. quit\n";
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
         TemplateManager templateManager = TemplateManager.getTemplateManager();
 
         System.out.println("Hello! I am MissDirectory!\n");
-        String mdMenu = "\n1. View/Modify Directory Templates" +
-                "\n2. Create New Template" +
-                "\n3. Generate Directory Structure" +
-                "\n4. quit\n";
         System.out.println("What would you like to do today?" + mdMenu);
 
         String userInput = reader.nextLine();
