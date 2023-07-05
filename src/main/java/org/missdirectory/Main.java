@@ -17,10 +17,12 @@ public class Main {
         TemplateManager templateManager = TemplateManager.getTemplateManager();
 
         System.out.println("Hello! I am MissDirectory!\n");
-        System.out.println("What would you like to do today?" + mdMenu);
 
-        String userInput = reader.nextLine();
-        while(!userInput.equals("4") && !userInput.equals("quit")) {
+        System.out.println("What would you like to do today?");
+        String userInput;
+        do {
+            System.out.println(MD_MENU);
+            userInput = reader.nextLine();
             switch (userInput) {
                 case "1":
                     ViewMode vm = new ViewMode(templateManager);
@@ -35,12 +37,14 @@ public class Main {
                         templateManager.setTemplate(newTemplate.getTemplateName(), newTemplate);
                     }
                     break;
+                case "4":
+                case "quit":
+                    break;
                 default:
                     System.out.println("Please select one of the options.");
             }
-            System.out.println(mdMenu);
-            userInput = reader.nextLine();
-        }
+        } while (!userInput.equals("4") && !userInput.equals("quit"));
+
 
         reader.close();
         System.out.println("Good bye!");
