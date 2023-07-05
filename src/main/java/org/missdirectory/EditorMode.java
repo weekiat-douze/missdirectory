@@ -24,26 +24,24 @@ public class EditorMode {
      * @return The completed template.
      */
     public Template run(Scanner reader) {
+
         System.out.println("Currently editing: " + this.editingTemplate.getTemplateName() + "\n");
+        CurrentDirectory currentDir = new CurrentDirectory(this.editingTemplate.getTemplateRootDir());
+        String userCmdStr;
 
-        CurrentDirectory currentDir = new CurrentDirectory(editingTemplate.getTemplateRootDir());
-        System.out.print(currentDir.getDirectoryPath());
-        reader = new Scanner(System.in);
-        String userCmdStr = reader.nextLine();
-
-
-        while(!userCmdStr.equals("exit")) {
-            try {
-                Command cmd = Parser.parseInput(userCmdStr);
-                cmd.execute(currentDir, editingTemplate);
-            } catch (ParseException pe) {
-                System.out.println(pe.getMessage());
-            } catch (ExecuteException ee) {
-                System.out.println(ee.getMessage());
-            }
+        do {
             System.out.print(currentDir.getDirectoryPath());
             userCmdStr = reader.nextLine();
-        }
+            if (userCmdStr.equals("exit")) {
+                break;
+            }
+            try {
+                Command cmd = Parser.parseInput(userCmdStr);
+                cmd.execute(currentDir, this.editingTemplate);
+            } catch (ParseException | ExecuteException exception) {
+                System.out.println(exception.getMessage());
+            }
+        } while(!userCmdStr.equals("exit"));
 
 
         return this.editingTemplate;
