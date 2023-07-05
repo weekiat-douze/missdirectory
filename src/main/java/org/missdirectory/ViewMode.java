@@ -17,10 +17,13 @@ public class ViewMode {
 
     public void run(Scanner reader) {
         System.out.println("Select via index to modify: ");
+
         ArrayList<String> templateListString = this.templateManager.getTemplateList();
         String listFormatted = formatTemplateList(templateListString);
         System.out.println(listFormatted);
         String userInput = reader.nextLine();
+
+
         while(!userInput.equals("exit")) {
             try {
                 int index = Integer.parseInt(userInput) - 1;
@@ -28,10 +31,8 @@ public class ViewMode {
                 Template selectedTemplate = this.templateManager.getTemplate(templateName);
                 EditorMode em = new EditorMode(selectedTemplate);
                 Template editedTemplate = em.run(reader);
-                templateManager.setTemplate(editedTemplate.getTemplateName(), editedTemplate);
-            } catch (NumberFormatException nfe) {
-                System.out.println("Please enter a valid index.");
-            } catch (IndexOutOfBoundsException iob) {
+                this.templateManager.setTemplate(editedTemplate.getTemplateName(), editedTemplate);
+            } catch (NumberFormatException | IndexOutOfBoundsException exception) {
                 System.out.println("Please enter a valid index.");
             }
             System.out.println(listFormatted);
