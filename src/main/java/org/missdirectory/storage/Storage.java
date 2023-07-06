@@ -1,5 +1,6 @@
 package org.missdirectory.storage;
 
+import org.missdirectory.exceptions.InvalidTemplateException;
 import org.missdirectory.model.Directory;
 import org.missdirectory.model.Template;
 
@@ -33,16 +34,20 @@ public class Storage {
             try {
                 Template template = fileToTemplate(templateFile);
                 allTemplates.put(templateFile.getName(), template);
-            } catch (FileNotFoundException fnf) {
+            } catch (FileNotFoundException | InvalidTemplateException | IllegalArgumentException e) {
                 continue;
             }
         }
         return allTemplates;
     }
 
-    private static Template fileToTemplate(File templateFile) throws FileNotFoundException {
+    private static Template fileToTemplate(File templateFile) throws FileNotFoundException, InvalidTemplateException,
+            IllegalArgumentException {
         // Get only the last directory from each path
         Scanner scan = new Scanner(templateFile);
+        if (!scan.hasNext()) {
+            throw new InvalidTemplateException("Invalid File Type");
+        }
         String[] directories = scan.nextLine().split("/");
         String dirOfInterest = directories[directories.length-1];
         Directory rootDirectory = new Directory(dirOfInterest);
