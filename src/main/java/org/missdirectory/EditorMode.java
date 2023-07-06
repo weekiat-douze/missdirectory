@@ -21,6 +21,7 @@ public class EditorMode {
 
     /**
      * Start the editing interface to edit the provided Template.
+     * @param reader Scanner object to read user input
      * @return The completed template.
      */
     public Template run(Scanner reader) {

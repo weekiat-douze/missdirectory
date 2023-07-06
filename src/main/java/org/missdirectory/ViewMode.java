@@ -19,6 +19,10 @@ public class ViewMode {
         this.templateManager = templateManager;
     }
 
+    /**
+     * Start the view interface to edit/view/delete templates.
+     * @param reader Scanner object to read user input.
+     */
     public void run(Scanner reader) {
 
         String userInput;
