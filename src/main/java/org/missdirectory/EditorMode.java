@@ -36,10 +36,10 @@ public class EditorMode {
                 break;
             }
             try {
-                Command cmd = Parser.parseInput(userCmdStr);
+                Command cmd = Parser.parseEditorInput(userCmdStr);
                 cmd.execute(currentDir, this.editingTemplate);
             } catch (ParseException | ExecuteException exception) {
-                System.out.println(exception.getMessage());
+                MissDirectory.warning(exception.getMessage());
             }
         } while(!userCmdStr.equals("exit"));
 

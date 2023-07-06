@@ -11,7 +11,7 @@ public class Main {
     private static final String MD_MENU = "1. View/Modify Directory Templates" +
             "\n2. Create New Template" +
             "\n3. Generate Directory Structure" +
-            "\n4. quit\n";
+            "\n4. quit";
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
 
@@ -19,9 +19,10 @@ public class Main {
 
         System.out.println("Hello! I am MissDirectory!\n");
 
-        System.out.println("What would you like to do today?");
+
         String userInput;
         do {
+            System.out.println("\nWhat would you like to do today?");
             System.out.println(MD_MENU);
             userInput = reader.nextLine();
             switch (userInput) {
@@ -36,13 +37,13 @@ public class Main {
                 case "quit":
                     break;
                 default:
-                    System.out.println("Please select one of the options.");
+                    MissDirectory.warning("Please select one of the options.");
             }
         } while (!userInput.equals("4") && !userInput.equals("quit"));
 
 
         reader.close();
-        System.out.println("Good bye!");
+        MissDirectory.speak("Good bye!");
     }
 
     private static void createNewTemplate(Scanner reader, TemplateManager templateManager) {
@@ -53,7 +54,7 @@ public class Main {
             templateName = reader.nextLine();
             notValidName = !Template.isValidName(templateName);
             if (notValidName) {
-                System.out.println("The name should be a valid file name.");
+                MissDirectory.warning("The name should be a valid file name.");
             }
         } while(notValidName);
         EditorMode em = new EditorMode(new Template(templateName));
