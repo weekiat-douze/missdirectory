@@ -8,11 +8,13 @@ import java.util.HashMap;
 public class TemplateManager {
  // Template Manger contains `Storage`
     private HashMap<String, Template> allTemplates;
+    private Storage storage;
     private static TemplateManager templateManager;
 
     private TemplateManager() {
         // Call Storage method to get populate all templates
-        this.allTemplates = Storage.loadTemplates();
+        this.storage = new Storage();
+        this.allTemplates = this.storage.loadTemplates();
     }
 
     public static TemplateManager getTemplateManager() {
@@ -32,7 +34,7 @@ public class TemplateManager {
 
     public void setTemplate(String templateName, Template template) {
         // Call Storage method to store template to persistent
-        boolean success = Storage.saveTemplate(template);
+        boolean success = storage.saveTemplate(template);
         if (success) {
             this.allTemplates.put(templateName, template);
         }
@@ -43,7 +45,7 @@ public class TemplateManager {
         if (!this.allTemplates.containsKey(templateName)) {
             return;
         }
-        boolean success = Storage.deleteTemplate(templateName);
+        boolean success = storage.deleteTemplate(templateName);
         if (success) {
             this.allTemplates.remove(templateName);
         }
