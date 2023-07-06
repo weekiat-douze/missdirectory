@@ -33,6 +33,8 @@ public class Main {
                 case "2":
                     createNewTemplate(reader, templateManager);
                     break;
+                case "3":
+                    new CreateMode(templateManager).run(reader);
                 case "4":
                 case "quit":
                     break;
