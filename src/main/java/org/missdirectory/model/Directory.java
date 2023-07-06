@@ -24,6 +24,10 @@ public class Directory {
     }
 
     public Directory(String directoryName, Directory parentDirectory) {
+        boolean validName = Pattern.matches(Directory.NAME_REGEX, directoryName);
+        if (!validName) {
+            throw new IllegalArgumentException("Invalid Directory Name");
+        }
         this.directoryName = directoryName;
         this.parentDirectory = parentDirectory;
         this.subDirectories = new HashMap<>();
