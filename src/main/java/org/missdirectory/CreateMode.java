@@ -29,8 +29,17 @@ public class CreateMode {
      */
     public void run(Scanner reader) {
         Template selectedTemplate = selectTemplate(reader);
+        if (selectedTemplate == null) {
+            return;
+        }
         TreeSet<String> dirPaths = setPlaceholder(reader, selectedTemplate);
+        if (dirPaths == null) {
+            return;
+        }
         String destinationPath = setDestination(reader);
+        if (destinationPath == null) {
+            return;
+        }
         generateDirectories(dirPaths, destinationPath);
     }
 
@@ -43,6 +52,9 @@ public class CreateMode {
             System.out.println(prompt);
             System.out.println(listFormatted);
             userInput = reader.nextLine();
+            if (userInput.equals("exit")) {
+                return null;
+            }
             try {
                 int index = Integer.parseInt(userInput) - 1;
                 String templateName = templateListString.get(index);
@@ -62,6 +74,9 @@ public class CreateMode {
         do {
             System.out.print(prompt);
             userInput = reader.nextLine();
+            if (userInput.equals("exit")) {
+                return null;
+            }
             boolean validName = Pattern.matches(Directory.NAME_REGEX, userInput);
             if (!validName) {
                 MissDirectory.warning("Invalid directory name.");
@@ -92,6 +107,8 @@ public class CreateMode {
             userInput = reader.nextLine();
             if (userInput.isEmpty()) {
                userInput = ".";
+            } else if (userInput.equals("exit")) {
+                return null;
             }
             File destination = new File(userInput);
             if(!destination.exists()) {
