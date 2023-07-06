@@ -2,6 +2,12 @@ package org.missdirectory.parser;
 
 import org.missdirectory.commands.*;
 import org.missdirectory.exceptions.ParseException;
+import org.missdirectory.viewcommands.DeleteViewCommand;
+import org.missdirectory.viewcommands.EditViewCommand;
+import org.missdirectory.viewcommands.ShowViewCommand;
+import org.missdirectory.viewcommands.ViewCommand;
+
+import java.util.ArrayList;
 
 /**
  * Parser for user input.
@@ -13,7 +19,7 @@ public class Parser {
      * @param userInput Input provided by user.
      * @return Command object representing user's intended action.
      */
-    public static Command parseInput(String userInput) throws ParseException {
+    public static Command parseEditorInput(String userInput) throws ParseException {
         // cd, mkdir, rm
         String[] temp = userInput.split(" ", 2);
 
@@ -37,4 +43,23 @@ public class Parser {
         }
 
     }
+
+    public static ViewCommand parseViewInput(String userInput, ArrayList<String> templateListString) throws ParseException{
+        String[] temp = userInput.split(" ", 2);
+
+        String command = temp[0];
+        String args = temp.length > 1 ? temp[1].trim() : null;
+
+        switch (command) {
+            case ShowViewCommand.COMMAND:
+                return ShowViewCommandParser.parse(args, templateListString);
+            case DeleteViewCommand.COMMAND:
+                return DeleteViewCommandParser.parse(args, templateListString);
+            case EditViewCommand.COMMAND:
+                return EditViewCommandParser.parse(args, templateListString);
+            default:
+                throw new ParseException("Invalid Action!");
+        }
+    }
+
 }

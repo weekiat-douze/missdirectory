@@ -1,7 +1,11 @@
 package org.missdirectory;
 
+import org.missdirectory.exceptions.ExecuteException;
+import org.missdirectory.exceptions.ParseException;
 import org.missdirectory.model.Template;
+import org.missdirectory.parser.Parser;
 import org.missdirectory.storage.TemplateManager;
+import org.missdirectory.viewcommands.ViewCommand;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -16,28 +20,26 @@ public class ViewMode {
     }
 
     public void run(Scanner reader) {
-        System.out.println("Select via index to modify: ");
 
-        ArrayList<String> templateListString = this.templateManager.getTemplateList();
-        String listFormatted = formatTemplateList(templateListString);
-        System.out.println(listFormatted);
-        String userInput = reader.nextLine();
-
-
-        while(!userInput.equals("exit")) {
-            try {
-                int index = Integer.parseInt(userInput) - 1;
-                String templateName = templateListString.get(index);
-                Template selectedTemplate = this.templateManager.getTemplate(templateName);
-                EditorMode em = new EditorMode(selectedTemplate);
-                Template editedTemplate = em.run(reader);
-                this.templateManager.setTemplate(editedTemplate.getTemplateName(), editedTemplate);
-            } catch (NumberFormatException | IndexOutOfBoundsException exception) {
-                System.out.println("Please enter a valid index.");
-            }
+        String userInput;
+        do {
+            System.out.println("\n[edit | delete | tree] {index}");
+            ArrayList<String> templateListString = this.templateManager.getTemplateList();
+            String listFormatted = formatTemplateList(templateListString);
             System.out.println(listFormatted);
             userInput = reader.nextLine();
-        }
+            if (userInput.equals("exit")) {
+                break;
+            }
+            try {
+                ViewCommand command = Parser.parseViewInput(userInput, templateListString);
+                command.execute(this.templateManager, reader);
+            } catch (ParseException | ExecuteException exception) {
+               MissDirectory.warning(exception.getMessage());
+            }
+
+        } while(!userInput.equals("exit"));
+
 
 
     }
