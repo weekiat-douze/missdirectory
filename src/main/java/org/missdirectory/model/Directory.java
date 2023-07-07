@@ -49,6 +49,10 @@ public class Directory {
         return this.parentDirectory;
     }
 
+    /**
+     * Get full path from root to current directory.
+     * @return String representation of directory path.
+     */
     public String getDirectoryPath() {
         String parentPath = this.parentDirectory != null ? this.parentDirectory.getDirectoryPath() + "/" : "";
         return parentPath + this.directoryName;
