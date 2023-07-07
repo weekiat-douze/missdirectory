@@ -16,7 +16,7 @@ public class ChangeDirectoryCommand extends Command {
 
     @Override
     public void execute(CurrentDirectory currentDirectory, Template editingTemplate) throws ExecuteException {
-        if (relativePath == null) {
+        if (relativePath == null || relativePath.isEmpty()) {
             currentDirectory.setCurrentDirectory(editingTemplate.getTemplateRootDir());
             return;
         }

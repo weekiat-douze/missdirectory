@@ -12,8 +12,8 @@ public class ChangeDirectoryCommandParser {
             return new ChangeDirectoryCommand(null);
         }
         boolean validName = Pattern.matches(Directory.NAME_REGEX, args);
-        if (!validName && !args.equals("..")) {
-            throw new ParseException("Invalid Directory Name, currently MissDirectory can only cd 1 step");
+        if (!validName && !args.equals("..") && !args.isEmpty()) {
+            throw new ParseException("Invalid Directory Name, currently MissDirectory can only cd 1 step.");
         }
         return new ChangeDirectoryCommand(args);
     }
