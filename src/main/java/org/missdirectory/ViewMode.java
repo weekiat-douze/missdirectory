@@ -5,6 +5,7 @@ import org.missdirectory.exceptions.ParseException;
 import org.missdirectory.model.Template;
 import org.missdirectory.parser.Parser;
 import org.missdirectory.storage.TemplateManager;
+import org.missdirectory.viewcommands.HelpViewCommand;
 import org.missdirectory.viewcommands.ViewCommand;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class ViewMode {
                 ViewCommand command = Parser.parseViewInput(userInput, templateListString);
                 command.execute(this.templateManager, reader);
             } catch (ParseException | ExecuteException exception) {
-               MissDirectory.warning(exception.getMessage());
+               MissDirectory.warning(exception.getMessage() + " " + HelpViewCommand.HINT);
             }
 
         } while(!userInput.equals("exit"));

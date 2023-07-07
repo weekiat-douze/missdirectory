@@ -2,10 +2,7 @@ package org.missdirectory.parser;
 
 import org.missdirectory.commands.*;
 import org.missdirectory.exceptions.ParseException;
-import org.missdirectory.viewcommands.DeleteViewCommand;
-import org.missdirectory.viewcommands.EditViewCommand;
-import org.missdirectory.viewcommands.ShowViewCommand;
-import org.missdirectory.viewcommands.ViewCommand;
+import org.missdirectory.viewcommands.*;
 
 import java.util.ArrayList;
 
@@ -57,6 +54,8 @@ public class Parser {
                 return DeleteViewCommandParser.parse(args, templateListString);
             case EditViewCommand.COMMAND:
                 return EditViewCommandParser.parse(args, templateListString);
+            case HelpViewCommand.COMMAND:
+                return new HelpViewCommand();
             default:
                 throw new ParseException("Invalid Action!");
         }

@@ -1,10 +1,8 @@
 package org.missdirectory;
 
-import com.sun.source.tree.Tree;
-import com.sun.source.util.Trees;
+
 import org.missdirectory.model.Directory;
 import org.missdirectory.model.Template;
-import org.missdirectory.storage.Storage;
 import org.missdirectory.storage.TemplateManager;
 
 import java.io.File;
