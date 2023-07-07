@@ -1,6 +1,7 @@
 package org.missdirectory;
 
 import org.missdirectory.commands.Command;
+import org.missdirectory.commands.HelpCommand;
 import org.missdirectory.exceptions.ExecuteException;
 import org.missdirectory.exceptions.ParseException;
 import org.missdirectory.model.CurrentDirectory;
@@ -41,7 +42,7 @@ public class EditorMode {
                 Command cmd = Parser.parseEditorInput(userCmdStr);
                 cmd.execute(currentDir, this.editingTemplate);
             } catch (ParseException | ExecuteException exception) {
-                MissDirectory.warning(exception.getMessage());
+                MissDirectory.warning(exception.getMessage() + " " + HelpCommand.HINT);
             }
         } while(!userCmdStr.equals("exit"));
 

@@ -35,6 +35,8 @@ public class Parser {
                 return RemoveCommandParser.parse(args);
             case TreeCommand.COMMAND:
                 return TreeCommandParser.parse(args);
+            case HelpCommand.COMMAND:
+                return new HelpCommand();
             default:
                 throw new ParseException("Invalid Command!");
         }
