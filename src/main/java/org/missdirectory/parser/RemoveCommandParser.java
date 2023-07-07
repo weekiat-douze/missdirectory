@@ -1,6 +1,5 @@
 package org.missdirectory.parser;
 
-import org.missdirectory.commands.MkdirCommand;
 import org.missdirectory.commands.RemoveCommand;
 import org.missdirectory.exceptions.ParseException;
 import org.missdirectory.model.Directory;
