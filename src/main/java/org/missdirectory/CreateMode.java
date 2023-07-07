@@ -60,7 +60,7 @@ public class CreateMode {
                 System.out.println(selectedTemplate.getTemplateTree());
                 return selectedTemplate;
             } catch(NumberFormatException | IndexOutOfBoundsException exception) {
-                MissDirectory.warning("Enter a valid index.");
+                MissDirectory.warning("Enter a valid index. `exit` to return to menu.");
             }
         } while(true);
     }
