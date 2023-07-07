@@ -17,6 +17,7 @@ public class Main {
 
         TemplateManager templateManager = TemplateManager.getTemplateManager();
 
+        System.out.println(MissDirectory.AVATAR);
         System.out.println("Hello! I am MissDirectory!\n");
 
 
