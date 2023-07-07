@@ -3,7 +3,6 @@ package org.missdirectory.parser;
 import org.junit.jupiter.api.Test;
 import org.missdirectory.exceptions.ParseException;
 import org.missdirectory.viewcommands.DeleteViewCommand;
-import org.missdirectory.viewcommands.ShowViewCommand;
 import org.missdirectory.viewcommands.ViewCommand;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DeleteViewCommandParserTest {
 
     @Test
-    void parseShowViewCommand() {
+    void parseDeleteViewCommand() {
         ArrayList<String> templateListString = new ArrayList<>();
         templateListString.add("Some_template");
         assertDoesNotThrow(() -> {
