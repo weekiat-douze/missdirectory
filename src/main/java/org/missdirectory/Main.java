@@ -25,6 +25,7 @@ public class Main {
         do {
             System.out.println("\nWhat would you like to do today?");
             System.out.println(MD_MENU);
+            System.out.print("> ");
             userInput = reader.nextLine();
             switch (userInput) {
                 case "1":

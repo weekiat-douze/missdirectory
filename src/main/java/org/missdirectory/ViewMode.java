@@ -32,6 +32,7 @@ public class ViewMode {
             ArrayList<String> templateListString = this.templateManager.getTemplateList();
             String listFormatted = formatTemplateList(templateListString);
             System.out.println(listFormatted);
+            System.out.print("> ");
             userInput = reader.nextLine();
             if (userInput.equals("exit")) {
                 break;
