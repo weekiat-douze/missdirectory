@@ -26,7 +26,8 @@ public class EditorMode {
      */
     public Template run(Scanner reader) {
 
-        System.out.println("Currently editing: " + this.editingTemplate.getTemplateName() + "\n");
+        System.out.println("Currently editing: " + this.editingTemplate.getTemplateName());
+        MissDirectory.warning("Note that template is only saved during `exit`");
         CurrentDirectory currentDir = new CurrentDirectory(this.editingTemplate.getTemplateRootDir());
         String userCmdStr;
 
