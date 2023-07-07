@@ -30,5 +30,6 @@ class MkdirCommandParserTest {
                 MkdirCommandParser.parse("abcABC0123@_-" + character);
             });
         }
+        assertThrows(ParseException.class, () -> MkdirCommandParser.parse(null));
     }
 }

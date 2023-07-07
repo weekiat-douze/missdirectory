@@ -29,6 +29,7 @@ class RemoveCommandParserTest {
                 RemoveCommandParser.parse("abcABC0123@_-" + character);
             });
         }
+        assertThrows(ParseException.class, () -> RemoveCommandParser.parse(null));
     }
 
 }
