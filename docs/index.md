@@ -2,6 +2,12 @@
 layout: default
 ---
 
+
+MissDirectory is a directory template manager used to automate the repetitive task of creating similar directory structures.
+MissDirectory can help you create, visualize directory structures in a familiar command-line interface.
+It encourages template reusability with its placeholder feature which allows users to specify directory name for each generation.
+
+
 # MissDirectory User Guide
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean convallis nec dolor in convallis. Curabitur tincidunt ut erat et aliquam. Integer massa massa, tempus euismod efficitur eget, volutpat sed mi. In hac habitasse platea dictumst. Ut justo felis, aliquet nec purus vitae, tristique pretium metus. Nullam in pharetra odio, eget feugiat velit. Cras pellentesque massa et sem imperdiet, a tempus lacus malesuada. Duis ut dapibus turpis, non dictum metus. Aliquam finibus facilisis tellus. Donec consequat iaculis euismod.
