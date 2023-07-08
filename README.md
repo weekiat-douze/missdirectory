@@ -1,8 +1,8 @@
 
 
 <picture>
-    <source srcset="docs/assets/images/MissDirectory_title_black.svg" media="(prefers-color-scheme: dark)">
-    <img src="docs/assets/images/MissDirectory_title_white.svg">
+    <source srcset="docs/assets/images/MissDirectory_title_white.svg" media="(prefers-color-scheme: dark)">
+    <img src="docs/assets/images/MissDirectory_title_black.svg">
 </picture>
 ## Introduction
 
