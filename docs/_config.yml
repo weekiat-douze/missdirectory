@@ -1,5 +1,3 @@
 title: "MissDirectory"
 theme: jekyll-theme-cayman
 
-plugins:
-  - jekyll-remote-theme
