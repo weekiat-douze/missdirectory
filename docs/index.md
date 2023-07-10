@@ -14,11 +14,20 @@ It encourages template reusability with its placeholder feature which allows use
 # Main Menu
 When you start the Application, MissDirectory will ask you to choose the action you would like to perform. By selecting an action, you will enter one of the following modes:
 
-| Views         | Option           | Description                                                         |
-|---------------|------------------|---------------------------------------------------------------------|
-| Editor Mode   | 2 / Create       | A command-line inspired editor mode for template manipulation.      |  
-| View Mode     | 1 / View, Modify | Provides an overview of templates as well as actions to manage them |
-| Generate Mode | 3 / Generate     | Creates the directory structure from an existing template           |
+| Views                           | Option           | Description                                                         |
+|---------------------------------|------------------|---------------------------------------------------------------------|
+| [Editor Mode](#editor-mode)     | 2 / Create       | A command-line inspired editor mode for template manipulation.      |  
+| [View Mode](#view-mode)         | 1 / View, Modify | Provides an overview of templates as well as actions to manage them |
+| [Generate Mode](#generate-mode) | 3 / Generate     | Creates the directory structure from an existing template           |
+
+```
+What would you like to do today?
+1. View/Modify Directory Templates
+2. Create New Template
+3. Generate Directory Structure
+4. quit
+> 
+```
 
 > To exit the Application from Main Menu, input `4` or `quit`
 
@@ -61,19 +70,19 @@ Templates are rooted under a single directory with the placeholder (@). During g
 ## View Mode
 A template manager that provides an overview of templates and accompanying actions to manage them.
 
-| Commands     | Description                           |
-|--------------|---------------------------------------|
-| tree INDEX   | see template's structure in tree form |
-| delete INDEX | delete a template                     |
-| edit INDEX   | edit a template in Editor Mode        |
-| exit         | return to Main Menu                   |
-| help         | see summary of commands in View Mode  |
+| Commands     | Description                                    |
+|--------------|------------------------------------------------|
+| tree INDEX   | see template's structure in tree form          |
+| delete INDEX | delete a template                              |
+| edit INDEX   | edit a template in [Editor Mode](#editor-mode) |
+| exit         | return to Main Menu                            |
+| help         | see summary of commands in View Mode           |
 
 
 ## Generate Mode
 Sequence of prompts to finalize details of the directory to be generated.
 1. Choose template
-2. Choose name for root directory and placeholder (@)
+2. Choose name for root directory and [placeholder](#placeholder-feature) (@)
 3. Destination
 
 > To leave Generate Mode, simply enter `exit` during any of the above prompts
