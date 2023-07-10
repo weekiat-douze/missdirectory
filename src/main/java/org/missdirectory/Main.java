@@ -1,6 +1,5 @@
 package org.missdirectory;
 
-import org.missdirectory.exceptions.ParseException;
 import org.missdirectory.model.Template;
 import org.missdirectory.storage.TemplateManager;
 
@@ -13,9 +12,19 @@ public class Main {
             "\n3. Generate Directory Structure" +
             "\n4. quit";
     public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
 
+        Scanner reader = new Scanner(System.in);
         TemplateManager templateManager = TemplateManager.getTemplateManager();
+        if (args.length != 0) {
+            if ( args.length == 1 && args[0].equals("-g")) {
+                quickGeneration(reader, templateManager);
+            } else {
+                MissDirectory.warning("Invalid Arguments");
+            }
+            return;
+        }
+
+
 
         System.out.println(MissDirectory.AVATAR);
         System.out.println("Hello! I am MissDirectory!\n");
@@ -66,5 +75,9 @@ public class Main {
         if (newTemplate != null) {
             templateManager.setTemplate(newTemplate.getTemplateName(), newTemplate);
         }
+    }
+
+    private static void quickGeneration(Scanner reader, TemplateManager templateManager) {
+        new CreateMode(templateManager).run(reader);
     }
 }
