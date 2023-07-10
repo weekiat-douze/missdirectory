@@ -26,7 +26,7 @@ as the destination instead of specifying the path.
 
 > **Quick Generation `-g`**<br>
 > MissDirectory accepts an optional flag `-g`.
-When passed,MissDirectory will go into [Generate Mode](#generate-mode) directly to enable quick directory generation. 
+When passed, MissDirectory will go into [Generate Mode](#generate-mode) directly to enable quick directory generation. 
 
 # Main Menu
 When you start the Application, MissDirectory will ask you to choose the action you would like to perform. By selecting an action, you will enter one of the following modes:

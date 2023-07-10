@@ -29,10 +29,10 @@ as the destination instead of specifying the path.
 
 > **Quick Generation `-g`**<br>
 > MissDirectory accepts an optional flag `-g`.
-When passed,MissDirectory will go into [Generate Mode](https://weekiat-douze.github.io/missdirectory/#generate-mode) directly to enable quick directory generation.
+When passed, MissDirectory will go into [Generate Mode](https://weekiat-douze.github.io/missdirectory/#generate-mode) directly to enable quick directory generation.
 
 # Demo
 
-# Implementation Details
+
 
 
