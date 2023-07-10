@@ -14,11 +14,11 @@ It encourages template reusability with its placeholder feature which allows use
 # Main Menu
 When you start the Application, MissDirectory will ask you to choose the action you would like to perform. By selecting an action, you will enter one of the following modes:
 
-| Views                       | Option          | Description                                                         |     |
-| --------------------------- | --------------- | ------------------------------------------------------------------- | --- |
-| Editor Mode | 2 / Create      | A command-line inspired editor mode for template manipulation.      |     |
-| View Mode                   | 1 / View, Modify | Provides an overview of templates as well as actions to manage them |     |
-| Generate Mode               | 3 / Generate                | Creates the directory structure from an existing template           |     |
+| Views         | Option           | Description                                                         |
+|---------------|------------------|---------------------------------------------------------------------|
+| Editor Mode   | 2 / Create       | A command-line inspired editor mode for template manipulation.      |  
+| View Mode     | 1 / View, Modify | Provides an overview of templates as well as actions to manage them |
+| Generate Mode | 3 / Generate     | Creates the directory structure from an existing template           |
 
 > To exit the Application from Main Menu, input `4` or `quit`
 
@@ -26,15 +26,15 @@ When you start the Application, MissDirectory will ask you to choose the action 
 ## Editor Mode
 A command-line inspired editor mode for template manipulation. It is designed to minimize the learning curve by building on familiar commands like 'cd' and 'mkdir'.
 
-| Commands                  | Description                                        |
-| ------------------------- | -------------------------------------------------- |
-| cd [ SUBDIRECTORY \| .. ] | Change directory to sub, parent, or root directory |
-| ls                        | see the subdirectories of current directory        |
-| mkdir NAME                | create a directory in current directory            |
-| rm SUBDIRECTORY           | delete a subdirectory of current directory         |
-| tree                      | see template's structure in tree form                                                   |
-| exit                      | save and exit template editor                      |
-| help                      | see summary of commands in Editor Mode                         |
+| Commands                      | Description                                        |
+|-------------------------------|----------------------------------------------------|
+| cd [ SUBDIRECTORY &#124; .. ] | Change directory to sub, parent, or root directory |
+| ls                            | see the subdirectories of current directory        |
+| mkdir NAME                    | create a directory in current directory            |
+| rm SUBDIRECTORY               | delete a subdirectory of current directory         |
+| tree                          | see template's structure in tree form              |
+| exit                          | save and exit template editor                      |
+| help                          | see summary of commands in Editor Mode             |
 
 > Note that the template is only saved when you `exit` the Editor Mode. Changes will be lost if you abruptly close MissDirectory.
 
@@ -62,7 +62,7 @@ Templates are rooted under a single directory with the placeholder (@). During g
 A template manager that provides an overview of templates and accompanying actions to manage them.
 
 | Commands     | Description                           |
-| ------------ | ------------------------------------- |
+|--------------|---------------------------------------|
 | tree INDEX   | see template's structure in tree form |
 | delete INDEX | delete a template                     |
 | edit INDEX   | edit a template in Editor Mode        |
