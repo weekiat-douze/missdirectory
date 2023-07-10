@@ -49,6 +49,7 @@ public class CreateMode {
         do {
             System.out.println(prompt);
             System.out.println(listFormatted);
+            System.out.print("> ");
             userInput = reader.nextLine();
             if (userInput.equals("exit")) {
                 return null;
