@@ -9,7 +9,25 @@ MissDirectory is a directory template manager used to automate the repetitive ta
 It encourages template reusability with its placeholder feature which allows users to specify directory name for each generation.
 
 # Installation
-*coming soon
+### Basic
+Ensure that you have Java 11 and above.
+Download the jar file from the [release](https://github.com/weekiat-douze/missdirectory/releases/tag/v1.0) and place it in a directory
+which serves as a home for MissDirectory. Run:
+```
+java -jar missdirectory.jar
+```
+### Recommended
+We recommend to create an alias for MissDirectory so that it can be called from anywhere. By calling from the directory, you can use "current directory" 
+as the destination instead of specifying the path.
+1. Follow the [Basic Installation](#basic)
+2. Create an alias for MissDirectory e.g. `alias missdirectory="java -jar /path/to/jar/file/missdirectory.jar"`
+3. Restart shell to apply alias
+4. Use the alias e.g. `missdirectory` or `missdirectory -g`
+
+> **Quick Generation `-g`**<br>
+> MissDirectory accepts an optional flag `-g`.
+When passed,MissDirectory will go into [Generate Mode](#generate-mode) directly to enable quick directory generation. 
+
 # Main Menu
 When you start the Application, MissDirectory will ask you to choose the action you would like to perform. By selecting an action, you will enter one of the following modes:
 
