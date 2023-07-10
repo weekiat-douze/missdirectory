@@ -15,7 +15,8 @@ public class HelpCommand extends Command{
             + "  `mkdir NAME` — create a directory in current directory\n"
             + "  `cd [SUBDIRECTORY | .. ]` — change directory to sub, parent, or root directory\n"
             + "  `rm SUBDIRECTORY` — delete a subdirectory of current directory\n"
-            + "  `exit` — save and exit template editor\n";
+            + "  `exit` — save and exit template editor\n"
+            + "\nvisit https://github.com/weekiat-douze/missdirectory for more info";
 
     @Override
     public void execute(CurrentDirectory currentDirectory, Template editingTemplate) throws ExecuteException {

@@ -15,7 +15,8 @@ public class HelpViewCommand extends ViewCommand{
             + "  `tree INDEX` — see the template's tree structure\n"
             + "  `delete INDEX` — delete the template\n"
             + "  `edit INDEX` — edit a template\n"
-            + "  `exit` — go back to main menu";
+            + "  `exit` — go back to main menu\n"
+            + "\nvisit https://github.com/weekiat-douze/missdirectory for more info";
 
     @Override
     public void execute(TemplateManager templateManager, Scanner reader) throws ExecuteException {
