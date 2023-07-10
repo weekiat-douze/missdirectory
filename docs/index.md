@@ -5,8 +5,7 @@ layout: default
 <img src="assets/images/MissDirectory_title_black.svg">
 
 
-MissDirectory is a directory template manager used to automate the repetitive task of creating similar directory structures.  
-MissDirectory embraces the power of command-line conventions to deliver a seamless editing experience for templates. It is designed to minimize the learning curve by building on familiar commands like 'cd' and 'mkdir'.
+MissDirectory is a directory template manager used to automate the repetitive task of creating similar directory structures.MissDirectory embraces the power of command-line conventions to deliver a seamless editing experience for templates. It is designed to minimize the learning curve by building on familiar commands like 'cd' and 'mkdir'.
 It encourages template reusability with its placeholder feature which allows users to specify directory name for each generation.
 
 # Installation
@@ -34,16 +33,17 @@ What would you like to do today?
 
 ## Editor Mode
 A command-line inspired editor mode for template manipulation. It is designed to minimize the learning curve by building on familiar commands like 'cd' and 'mkdir'.
+Like the terminal, the prompt also shows the current directory.
 
-| Commands                      | Description                                        |
-|-------------------------------|----------------------------------------------------|
-| cd [ SUBDIRECTORY &#124; .. ] | Change directory to sub, parent, or root directory |
-| ls                            | see the subdirectories of current directory        |
-| mkdir NAME                    | create a directory in current directory            |
-| rm SUBDIRECTORY               | delete a subdirectory of current directory         |
-| tree                          | see template's structure in tree form              |
-| exit                          | save and exit template editor                      |
-| help                          | see summary of commands in Editor Mode             |
+| Commands                        | Description                                        |
+|---------------------------------|----------------------------------------------------|
+| `cd [ SUBDIRECTORY &#124; .. ]` | Change directory to sub, parent, or root directory |
+| `ls`                            | see the subdirectories of current directory        |
+| `mkdir NAME`                    | create a directory in current directory            |
+| `rm SUBDIRECTORY`               | delete a subdirectory of current directory         |
+| `tree`                          | see template's structure in tree form              |
+| `exit`                          | save and exit template editor                      |
+| `help`                          | see summary of commands in Editor Mode             |
 
 > Note that the template is only saved when you `exit` the Editor Mode. Changes will be lost if you abruptly close MissDirectory.
 
@@ -70,14 +70,21 @@ Templates are rooted under a single directory with the placeholder (@). During g
 ## View Mode
 A template manager that provides an overview of templates and accompanying actions to manage them.
 
-| Commands     | Description                                    |
-|--------------|------------------------------------------------|
-| tree INDEX   | see template's structure in tree form          |
-| delete INDEX | delete a template                              |
-| edit INDEX   | edit a template in [Editor Mode](#editor-mode) |
-| exit         | return to Main Menu                            |
-| help         | see summary of commands in View Mode           |
+| Commands       | Description                                    |
+|----------------|------------------------------------------------|
+| `tree INDEX`   | see template's structure in tree form          |
+| `delete INDEX` | delete a template                              |
+| `edit INDEX`   | edit a template in [Editor Mode](#editor-mode) |
+| `exit`         | return to Main Menu                            |
+| `help`         | see summary of commands in View Mode           |
 
+```
+[edit | delete | tree] {index}
+1. Course
+2. Project
+3. Photos
+> 
+```
 
 ## Generate Mode
 Sequence of prompts to finalize details of the directory to be generated.
