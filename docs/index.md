@@ -20,7 +20,7 @@ java -jar missdirectory.jar
 We recommend to create an alias for MissDirectory so that it can be called from anywhere. By calling from the directory, you can use "current directory" 
 as the destination instead of specifying the path.
 1. Follow the [Basic Installation](#basic)
-2. Create an alias for MissDirectory e.g. `alias missdirectory="java -jar /path/to/jar/file/missdirectory.jar"`
+2. Create an alias for MissDirectory <br>e.g. `alias missdirectory="java -jar /path/to/jar/file/missdirectory.jar"`
 3. Restart shell to apply alias
 4. Use the alias e.g. `missdirectory` or `missdirectory -g`
 
