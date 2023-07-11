@@ -33,7 +33,7 @@ When you start the Application, MissDirectory will ask you to choose the action 
 
 | Views                           | Option           | Description                                                         |
 |---------------------------------|------------------|---------------------------------------------------------------------|
-| [Editor Mode](#editor-mode)     | 2 / Create       | A command-line inspired editor mode for template manipulation.      |  
+| [Editor Mode](#editor-mode)     | 2 / Create       | A command-line inspired editor mode for template manipulation       |  
 | [View Mode](#view-mode)         | 1 / View, Modify | Provides an overview of templates as well as actions to manage them |
 | [Generate Mode](#generate-mode) | 3 / Generate     | Creates the directory structure from an existing template           |
 

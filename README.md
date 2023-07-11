@@ -11,6 +11,9 @@ It encourages template reusability with its placeholder feature which allows use
 
 Visit the [User Guide](https://weekiat-douze.github.io/missdirectory/) page for features and detailed tutorial.
 
+# Demo
+![demo](docs/assets/gif/MissDirectory_Demo.gif)
+
 # Installation
 ### Basic
 Ensure that you have Java 11 and above.
@@ -31,8 +34,6 @@ as the destination instead of specifying the path.
 > MissDirectory accepts an optional flag `-g`.
 When passed, MissDirectory will go into [Generate Mode](https://weekiat-douze.github.io/missdirectory/#generate-mode) directly to enable quick directory generation.
 
-# Demo
-![demo](docs/assets/gif/MissDirectory_Demo.gif)
 
 
 
