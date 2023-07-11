@@ -32,7 +32,7 @@ as the destination instead of specifying the path.
 When passed, MissDirectory will go into [Generate Mode](https://weekiat-douze.github.io/missdirectory/#generate-mode) directly to enable quick directory generation.
 
 # Demo
-
+![demo](docs/assets/gif/MissDirectory_Demo.gif)
 
 
 
